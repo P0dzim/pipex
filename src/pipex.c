@@ -10,30 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "../libft/libft.h"
-
-static char	*file1_and_cmd1(char **argv);
-static char	*file2_and_cmdend(int argc, char **argv);
-static void	bash_args_init(char **bash_args, char *str);
+#include "pipex.h"
 
 int	main(int argc, char **argv)
 {
-	char	*bash_args[4];
-	char 	*temp;
-	int		pipeid[2];
-
 	if (argc < 5)
 		return (1);
-	pipe(pipeid);
-	bash_args_init(bash_args, file1_and_cmd1(argv));
+	fork_process(argc, argv);
 	return (0);
 }
 
-static	char *file1_and_cmd1(char **argv)
+char	*file1_and_cmd1(char **argv)
 {
-	char *tab[5];
+	char	*tab[5];
 
 	tab[0] = "< ";
 	tab[1] = argv[1];
@@ -43,9 +32,9 @@ static	char *file1_and_cmd1(char **argv)
 	return(ft_reverse_split(tab, 0));
 }
 
-static	char *file2_and_cmdend(int argc, char **argv)
+char	*file2_and_cmdend(int argc, char **argv)
 {
-	char *tab[4];
+	char	*tab[4];
 
 	tab[0] = argv[argc - 2];
 	tab[1] = " > ";
@@ -54,7 +43,7 @@ static	char *file2_and_cmdend(int argc, char **argv)
 	return(ft_reverse_split(tab, 0));
 }
 
-static void	bash_args_init(char **bash_args, char *str)
+void	bash_args_init(char **bash_args, char *str)
 {
 	bash_args[0] = "/bin/bash";
 	bash_args[1] = "-c";
