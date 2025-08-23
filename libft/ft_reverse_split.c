@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 09:16:20 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/23 09:16:27 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/08/23 10:47:05 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	*ft_reverse_split(char **tab, char c)
 	}
 	str_len += ((c > 0) * tab_index) + 1;
 	str = ft_calloc(str_len, 1);
+	if (!str)
+		return (NULL);
 	tab_index = 0;
 	while (tab[tab_index])
 	{
