@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:43:46 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/23 09:17:04 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/08/26 10:15:16 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf_bonus.h"
 
 typedef struct s_list
 {
