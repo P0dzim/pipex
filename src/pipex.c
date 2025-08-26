@@ -12,41 +12,20 @@
 
 #include "pipex.h"
 
-int	main(int argc, char **argv)
+int	main(int argc, char **argv, char **envp)
 {
-	if (argc < 5)
+	int		pipe_id[2];
+	int		i;
+	pid_t	fork_id;
+
+	if (argc != 5)
 		return (1);
-	fork_process(argc, argv);
+	if (pipe(pipe_id) == -1)
+	{
+		perror("pipe error");
+		return (1);
+	}
+	argv++;
+	fork_process(argc, argv, envp, pipe_id);
 	return (0);
-}
-
-char	*file1_and_cmd1(char **argv)
-{
-	char	*tab[5];
-
-	tab[0] = "< ";
-	tab[1] = argv[1];
-	tab[2] = " ";
-	tab[3] = argv[2];
-	tab[4] = NULL;
-	return(ft_reverse_split(tab, 0));
-}
-
-char	*file2_and_cmdend(int argc, char **argv)
-{
-	char	*tab[4];
-
-	tab[0] = argv[argc - 2];
-	tab[1] = " > ";
-	tab[2] = argv[argc - 1];
-	tab[3] = NULL;
-	return(ft_reverse_split(tab, 0));
-}
-
-void	bash_args_init(char **bash_args, char *str)
-{
-	bash_args[0] = "/bin/bash";
-	bash_args[1] = "-c";
-	bash_args[2] = str;
-	bash_args[3] = NULL;
 }
