@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 13:14:37 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/26 11:45:09 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/08/26 12:17:41 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static int	child_process(char **argv, int i, int *pipe_id)
 		execve(bin[0], bin, NULL);
 		write(2, "evecve error", 12);
 	}
+	ft_free_table(&bin);
 	waitpid(fork_id, &j, 0);
 	return (j);
 }
