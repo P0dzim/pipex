@@ -1,4 +1,14 @@
-CFILES		= ft_strncmp.c ft_memcmp.c ft_putendl_fd.c ft_isalnum.c ft_isascii.c ft_strnstr.c ft_striteri.c ft_strjoin.c ft_strdup.c ft_itoa.c ft_memcpy.c ft_strtrim.c ft_calloc.c ft_isprint.c ft_strlen.c ft_isalpha.c ft_strlcat.c ft_memset.c ft_bzero.c ft_split.c ft_putnbr_fd.c ft_substr.c ft_strlcpy.c ft_memchr.c ft_isdigit.c ft_putstr_fd.c ft_strchr.c ft_memmove.c ft_toupper.c ft_strrchr.c ft_putchar_fd.c ft_atoi.c ft_strmapi.c ft_tolower.c ft_reverse_split.c
+CFILES		=	ft_strncmp.c ft_memcmp.c ft_putendl_fd.c ft_isalnum.c ft_isascii.c ft_free_table.c \
+				ft_strnstr.c ft_striteri.c ft_strjoin.c ft_strdup.c ft_itoa.c ft_memcpy.c \
+				ft_strtrim.c ft_calloc.c ft_isprint.c ft_strlen.c ft_isalpha.c ft_strlcat.c \
+				ft_memset.c ft_bzero.c ft_split.c ft_putnbr_fd.c ft_substr.c ft_strlcpy.c \
+				ft_memchr.c ft_isdigit.c ft_putstr_fd.c ft_strchr.c ft_memmove.c ft_toupper.c \
+				ft_strrchr.c ft_putchar_fd.c ft_atoi.c ft_strmapi.c ft_tolower.c ft_reverse_split.c \
+				printf_aux_function_3_bonus.c ft_printf_bonus.h printf_b_node_functions_bonus.c printf_b_atoi_sign_bonus.c \
+				printf_aux_function_2_bonus.c printf_b_pointer_bonus.c printf_b_hex_function_bonus.c ft_printf_bonus.c \
+				printf_cpy_func_bonus.c printf_b_aux_function_bonus.c printf_ft_uitoa_bonus.c printf_b2_aux_function_bonus.c \
+				printf_node_functions_bonus.c printf_b_iud_function_bonus.c printf_ssize_t_atoi_bonus.c printf_aux_function_bonus.c
+
 OFILES		= ${CFILES:.c=.o}
 FLAGS		= -Wall -Wextra -Werror
 HFILES		= libft.h
