@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 13:14:37 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/27 11:23:22 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/08/27 12:23:17 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	beggin_process(char **argv, int *pipe_id);
 static int	end_process(char **argv, int *pipe_id);
 static char	**construct_args(char *argv, int *pipe_id);
 
-void	fork_process(int argc, char **argv, char **envp, int *pipe_id)
+void	fork_process(int argc, char **argv, int *pipe_id)
 {
 	int		process_ret;
 	int		i;

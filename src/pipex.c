@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+int	main(int argc, char **argv)
 {
 	int		pipe_id[2];
 	int		i;
@@ -26,6 +26,6 @@ int	main(int argc, char **argv, char **envp)
 		return (1);
 	}
 	argv++;
-	fork_process(argc, argv, envp, pipe_id);
+	fork_process(argc, argv, pipe_id);
 	return (0);
 }
