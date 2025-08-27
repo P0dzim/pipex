@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 10:27:03 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/26 11:07:48 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:15:45 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@ int	check_file_exists(char *file, int *pipe_id)
 
 	if (access(file, F_OK) == -1)
 	{
-		dup2(1, 2);
-		close(pipe_id[0]);
-		close(pipe_id[1]);
-		ft_printf("%s: No such file or directory\n", file);
+		close_pipe(pipe_id);
+		ft_putstr_fd(file, 2);
+		ft_putstr_fd(": No such file or directory\n", 2);
 		exit(1);
 	}
 	fd = open(file, O_RDONLY);
+	if (fd == -1)
+	{
+		close_pipe(pipe_id);
+		perror(strerror(errno));
+		exit(1);
+	}
 	return (fd);
 }
 
@@ -35,12 +40,11 @@ char	*check_command_exist(char *bin, int *pipe_id)
 	str = ft_strjoin("/bin/", bin);
 	if (access(str, F_OK) == -1)
 	{
-		dup2(1, 2);
-		close(pipe_id[0]);
-		close(pipe_id[1]);
-		ft_printf("%s: command not found\n", bin);
+		close_pipe(pipe_id);
+		ft_putstr_fd(bin, 2);
+		ft_putstr_fd(": command not found\n", 2);
 		free(str);
-		exit(1);
+		exit(127);
 	}
 	return (str);
 }
