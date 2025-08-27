@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 11:44:59 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/26 11:08:13 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:25:36 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@
 # include "../libft/libft.h"
 
 void	fork_process(int argc, char **argv, char **envp, int *pipe_id);
+
 int		check_file_exists(char *file, int *pipe_id);
 char	*check_command_exist(char *bin, int *pipe_id);
+
+void	close_pipe(int *pipe_fd);
+
+void	exec_program(int std_in, int std_out, char **param);
+
+void	write_error(int return_pid)
 
 #endif
