@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_error.c                                      :+:      :+:    :+:   */
+/*   close_pipes.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 11:21:08 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/27 11:25:54 by vitosant         ###   ########.fr       */
+/*   Created: 2025/09/13 16:48:26 by vitosant          #+#    #+#             */
+/*   Updated: 2025/09/13 16:49:20 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	write_error(int return_pid)
+void	close_pipes(int	*pipe_id)
 {
-	perror(strerror(errno));
-	exit(return_pid);
+	close(pipe_id[0]);
+	close(pipe_id[1]);
 }

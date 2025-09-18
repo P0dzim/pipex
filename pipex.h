@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 11:44:59 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/27 11:32:34 by vitosant         ###   ########.fr       */
+/*   Created: 2025/09/13 15:34:12 by vitosant          #+#    #+#             */
+/*   Updated: 2025/09/13 17:41:47 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,24 @@
 # include <string.h>
 # include <sys/wait.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "libft/libft.h"
 
-void	fork_process(int argc, char **argv, int *pipe_id);
+# define FILE_ERROR 256
+# define COMAND_NOT 32512
 
-int		check_file_exists(char *file, int *pipe_id);
-char	*check_command_exist(char *bin, int *pipe_id);
+typedef struct s_args_lst
+{
+	char				**args;
+	struct s_args_lst	*next;
+}						t_args_lst;
 
-void	close_pipe(int *pipe_fd);
-
-void	exec_program(int std_in, int std_out, char **param);
-
-void	write_error(int return_pid);
+void	close_pipes(int	*pipe_id);
+int		fork_process(char **argv, char **envp, int *pipe_fd);
+int		file_error(char *file, int *pipe_fd);
+int		check_input(char *file);
+int		check_output(char *file);
+void	make_args(char ***args, char *command, char **envp);
+void	exec_program(char **args, char **env, int std_in, int std_out);
+void	lst_control(char **args);
 
 #endif

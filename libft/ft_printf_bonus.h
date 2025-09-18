@@ -53,8 +53,6 @@ typedef struct s_sentinel
 typedef void				(*t_func)(va_list, t_sentinel*, char*);
 typedef unsigned long long	t_ull;
 
-int			ft_printf(const char *str, ...);
-
 void		aux_char(va_list args, t_sentinel *sentinel, char *spec);
 void		aux_str(va_list args, t_sentinel *sentinel, char *spec);
 void		aux_point(va_list args, t_sentinel *sentinel, char *spec);

@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:43:46 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/26 12:15:59 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/09/12 11:08:15 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf_bonus.h"
+
+# define OPEN_MAX 1024
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 typedef struct s_list
 {
@@ -30,6 +34,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
+size_t	ft_tablen(char **tab);
 
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
@@ -60,6 +65,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_reverse_split(char **tab, char c);
+char	**ft_tabjoin(char **t1, char **t2);
+char	*get_next_line(int fd);
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
@@ -72,5 +79,6 @@ int		ft_isprint(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_lstsize(t_list *lst);
+int		ft_printf(const char *str, ...);
 
 #endif

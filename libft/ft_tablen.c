@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_table.c                                    :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vitosant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 11:45:50 by vitosant          #+#    #+#             */
-/*   Updated: 2025/08/26 11:48:40 by vitosant         ###   ########.fr       */
+/*   Created: 2025/09/06 12:36:30 by vitosant          #+#    #+#             */
+/*   Updated: 2025/09/12 17:39:36 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_table(char ***tab)
+size_t	ft_tablen(char **tab)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
-	while (tab[0][i])
-	{
-		free(tab[0][i]);
-		i++;
-	}
-	free(tab[0]);
-	tab[0] = (char **)0;
+	len = 0;
+	while (tab[len])
+		len++;
+	return (len);
 }
