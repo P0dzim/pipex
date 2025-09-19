@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 15:34:12 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/18 07:56:06 by vitosant         ###   ########.fr       */
+/*   Created: 2025/09/18 07:54:39 by vitosant          #+#    #+#             */
+/*   Updated: 2025/09/19 18:45:17 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include <stdlib.h>
 # include <errno.h>
@@ -31,13 +31,24 @@ typedef struct s_args_lst
 	struct s_args_lst	*next;
 }						t_args_lst;
 
+typedef struct s_env
+{
+	int		argc;
+	int		pipec;
+	int		heredoc;
+	int		**pipe_fd;
+	char	**argv;
+	char	**envp;
+}			t_env;
+
 void	close_pipes(int	*pipe_id);
-int		fork_process(char **argv, char **envp, int *pipe_fd);
+int		fork_process(t_env env);
 int		file_error(char *file, int *pipe_fd);
 int		check_input(char *file);
-int		check_output(char *file);
+int		check_output(t_env *env);
 void	make_args(char ***args, char *command, char **envp);
 void	exec_program(char **args, char **env, int std_in, int std_out);
 void	lst_control(char **args);
+int		here_doc(t_env *env);
 
 #endif

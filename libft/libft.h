@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:43:46 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/12 11:08:15 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/09/18 11:03:29 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *str, ...);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

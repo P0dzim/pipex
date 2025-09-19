@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_program.c                                     :+:      :+:    :+:   */
+/*   file_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 17:29:22 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/18 08:16:34 by vitosant         ###   ########.fr       */
+/*   Created: 2025/09/13 16:59:05 by vitosant          #+#    #+#             */
+/*   Updated: 2025/09/13 17:40:51 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void	exec_program(char **args, char **env, int std_in, int std_out)
-{
-	if (dup2(std_in, STDIN_FILENO) == -1)
-		perror("");
-	if (dup2(std_out, STDOUT_FILENO) == -1)
-		perror("");
-	if (close(std_in) == -1)
-		perror("");
-	if (close(std_out) == -1)
-		perror("");
-	execve(args[0], args, env);
-	perror("");
-	exit(errno);
-}

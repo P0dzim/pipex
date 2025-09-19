@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:26:00 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/13 17:56:40 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/09/18 07:56:19 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	fork_process(char **argv, char **envp, int *pipe_fd)
 		if (final_process == -1)
 			i = FILE_ERROR;
 		if (final_process == -2)
-			i = COMAND_NOT;
+			i = COMMAND_NF;
 	}
 	else
 		waitpid(final_process, &i, 0);

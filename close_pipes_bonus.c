@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_program.c                                     :+:      :+:    :+:   */
+/*   close_pipes_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 17:29:22 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/18 08:16:34 by vitosant         ###   ########.fr       */
+/*   Created: 2025/09/13 16:48:26 by vitosant          #+#    #+#             */
+/*   Updated: 2025/09/19 16:12:26 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-void	exec_program(char **args, char **env, int std_in, int std_out)
+void	close_pipes(int	*pipe_id)
 {
-	if (dup2(std_in, STDIN_FILENO) == -1)
-		perror("");
-	if (dup2(std_out, STDOUT_FILENO) == -1)
-		perror("");
-	if (close(std_in) == -1)
-		perror("");
-	if (close(std_out) == -1)
-		perror("");
-	execve(args[0], args, env);
-	perror("");
-	exit(errno);
+	close(pipe_id[0]);
+	close(pipe_id[1]);
 }
