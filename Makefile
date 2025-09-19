@@ -1,4 +1,4 @@
-B_CFILE	=	check_files_bonus.c \
+B_CFILES	=	check_files_bonus.c \
 			close_pipes_bonus.c \
 			exec_program_bonus.c \
 			file_error_bonus.c \
@@ -8,7 +8,7 @@ B_CFILE	=	check_files_bonus.c \
 			make_args_bonus.c \
 			mini_garbage_bonus.c 
 
-CFILE = mini_garbage.c \
+CFILES = mini_garbage.c \
 		close_pipes.c \
 		file_error.c \
 		main.c \
@@ -17,7 +17,11 @@ CFILE = mini_garbage.c \
 		check_files.c \
 		fork_process.c
 
-NAME =	pipex
+OFILES		=	${CFILES:.c=.o}
+B_OFILES	=	${B_CFILES:.c=.o}
+NAME 		=	pipex
+LIBFT_DIR	=	./libft/
+LIBFT		=	./libft/libft.a
 
 ifeq ($(findstring bonus, $(MAKECMDGOALS)), bonus)
 	CFILES = $(B_CFILES)
