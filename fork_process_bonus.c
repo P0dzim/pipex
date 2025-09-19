@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 16:26:00 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/19 19:09:04 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:28:07 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ static void	middle_process(t_env *env, pid_t *last_process)
 
 static void	ft_free_pipe(t_env env)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (env.pipec > i)

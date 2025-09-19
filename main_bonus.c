@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 07:53:22 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/19 19:23:45 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:28:37 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	pipe_error(int **pipe_fd, int i, int allocs);
 int	main(int argc, char **argv, char **envp)
 {
 	int		i;
-	int		**pipe_fd;
 	t_env	env;
 
 	if (argc < 5)
