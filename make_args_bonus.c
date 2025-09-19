@@ -6,7 +6,7 @@
 /*   By: vitosant <vitosant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 17:09:10 by vitosant          #+#    #+#             */
-/*   Updated: 2025/09/19 16:12:52 by vitosant         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:32:56 by vitosant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*search_bin(char *command, char **envp)
 	if (!paths)
 		paths = put_endbar(envp);
 	if (ft_strchr(command, '/') && access(command, F_OK) == 0)
-		return (command);
+		return (ft_strdup(command));
 	while (paths && paths[i])
 	{
 		bin = ft_strjoin(paths[i], command);
