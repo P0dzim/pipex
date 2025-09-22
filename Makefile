@@ -1,7 +1,6 @@
 B_CFILES	=	check_files_bonus.c \
 			close_pipes_bonus.c \
 			exec_program_bonus.c \
-			file_error_bonus.c \
 			fork_process_bonus.c \
 			heredoc_bonus.c \
 			main_bonus.c \
@@ -10,7 +9,6 @@ B_CFILES	=	check_files_bonus.c \
 
 CFILES = mini_garbage.c \
 		close_pipes.c \
-		file_error.c \
 		main.c \
 		exec_program.c \
 		make_args.c \
