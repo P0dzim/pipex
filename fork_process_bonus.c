@@ -119,6 +119,7 @@ static void	middle_process(t_env *env, pid_t *last_process)
 		}
 		close_pipes(env->pipe_fd[index_fd - 1]);
 		index_fd++;
+		wait(NULL);
 	}
 	if (index_fd - 1)
 		*last_process = fork_pid;
